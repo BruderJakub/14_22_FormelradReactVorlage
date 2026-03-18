@@ -48,22 +48,22 @@ export default function Formelrad() {
                 /*calculate u and i */
                 setValues(values => ({...values, u: Math.sqrt(values.p * values.r)}));
                 setValues(values => ({...values, i: Math.sqrt(values.p / values.r)}));
-                setColors( colors=> ({...colors, u:"red", i:"red"}));
+                setColors(colors => ({...colors, u: "red", i: "red"}));
             } else if (values.u === "" && values.r === "") {
                 /*calculate u and r */
                 setValues(values => ({...values, u: values.p / values.i}));
                 setValues(values => ({...values, r: values.p / values.i / values.i}));
-                setColors( colors=> ({...colors, u:"red", r:"red"}));
+                setColors(colors => ({...colors, u: "red", r: "red"}));
             } else if (values.u === "" && values.p === "") {
                 /*calculate u and p */
                 setValues(values => ({...values, u: values.i * values.r}));
                 setValues(values => ({...values, p: values.i * values.i * values.r}));
-                setColors( colors=> ({...colors, u:"red", p:"red"}));
+                setColors(colors => ({...colors, u: "red", p: "red"}));
             } else if (values.i === "" && values.r === "") {
                 /*calculate i and r */
                 setValues(values => ({...values, i: values.p / values.u}));
                 setValues(values => ({...values, r: values.u * values.u / values.p}));
-                setColors( colors=> ({...colors, i:"red", r:"red"}));
+                setColors(colors => ({...colors, i: "red", r: "red"}));
             } else if (values.i === "" && values.p === "") {
                 /*calculate i and p */
                 setValues(values => ({...values, i: values.u / values.r}));
@@ -84,6 +84,7 @@ export default function Formelrad() {
                 <header>
                     <h2>Formelrad</h2>
                     <img src={formelrad} width="200" alt="Formelrad"/>
+                    <p>Zwei Werte eingeben, die anderen werden berechnet.</p>
                 </header>
                 <form onSubmit={handleSubmit}>
                     <InputField color={colors.u} value={values.u} label="Spannung" handleChange={e => {setValues(values => ({...values, u: e.target.value}))}} />
